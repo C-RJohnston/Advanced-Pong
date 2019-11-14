@@ -1,0 +1,4 @@
+﻿Engine.obj : error LNK2019: unresolved external symbol "private: void __cdecl Engine::input(void)" (?input@Engine@@AEAAXXZ) referenced in function "public: void __cdecl Engine::run(void)" (?run@Engine@@QEAAXXZ)
+Engine.obj : error LNK2019: unresolved external symbol "private: void __cdecl Engine::update(float)" (?update@Engine@@AEAAXM@Z) referenced in function "public: void __cdecl Engine::run(void)" (?run@Engine@@QEAAXXZ)
+Engine.obj : error LNK2019: unresolved external symbol "private: void __cdecl Engine::draw(void)" (?draw@Engine@@AEAAXXZ) referenced in function "public: void __cdecl Engine::run(void)" (?run@Engine@@QEAAXXZ)
+C:\Users\camer\source\repos\Pinball\x64\Debug\Pinball.exe : fatal error LNK1120: 3 unresolved externals

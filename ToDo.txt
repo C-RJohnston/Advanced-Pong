@@ -1,0 +1,60 @@
+PHYSICS:
+Gravity acting on the pinball makes the ball move down (accounts for the angle of the pinball table?)
+Collision between the pinball and the paddle (has to react dynamically to where on the paddle the ball is bounced)
+Collision between the pinball and obstacles
+Collision between the pinball and point boinkers
+Collision between the pinball and walls
+Dynamic ball launching
+
+INPUT:
+Paddle control
+ball launching
+
+GAMEPLAY:
+Game over mechanics (fall off screen)
+Point system
+*Optional*
+Iterate between pinball tables
+
+Classes:
+Engine class
+Ball class
+Paddle class
+obstacle class
+point boinker class
+
+Engine Class:
+Computes the collisions between everything
+Computes the gravity of the game
+tracks the score
+handles input
+Displays the game window
+
+Ball Class:
+Must be affected by gravity
+Be a ball
+Collide with everything
+
+Paddle class:
+Respond to input
+Collide Dynamically with the ball and transfer realistic momentum
+Be animated
+
+Obstacle Class:
+Collide dynamically with the ball with realistic momentum
+
+Point Boinker Class:
+Inherit from the obstacle class but also give points
+
+
+What done:
+Started engine class
+build texture holder class
+mostly just lifting from old TWL code
+
+What to do:
+build input, update and draw functions (mostly just lifting from TWL code)
+make graphics for ball, paddle, obstacles, point boinkers, wall, and background
+implement gravity on ball
+implement collisions
+implement score system
