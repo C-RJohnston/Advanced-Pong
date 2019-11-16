@@ -10,12 +10,16 @@ Engine::Engine()
 
 	m_View.setSize(resolution);
 	m_HudView.reset(FloatRect(0, 0, resolution.x, resolution.y));
+
+	m_BackgroundTexture = TextureHolder::GetTexture("graphics/background.jpg");
+	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 }
 
 void Engine::run()
 {
 	// Timing 	
 	Clock clock;
+	m_Ball.spawn(Vector2f(100, 100), Vector2f(0, -500), g);
 
 	while (m_Window.isOpen())
 	{
