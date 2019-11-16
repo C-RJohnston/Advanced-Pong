@@ -54,7 +54,6 @@ mostly just lifting from old TWL code
 implemented gravity on ball
 
 What to do:
-build input, update and draw functions (mostly just lifting from TWL code)
 Make all objects and classes
 make graphics for ball, paddle, obstacles, point boinkers, wall, and background
 implement collisions
