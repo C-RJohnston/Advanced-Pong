@@ -59,3 +59,6 @@ Make all objects and classes
 make graphics for ball, paddle, obstacles, point boinkers, wall, and background
 implement collisions
 implement score system
+
+Next Step:
+Create Obstacle and detect collision between obstacle and ball
