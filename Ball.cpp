@@ -4,10 +4,11 @@
 
 Ball::Ball()
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("graphics/ball.png"));
+	m_Circle.setRadius(10);
+	m_Circle.setFillColor(sf::Color::White);
 }
 
-void Ball::spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravity)
+void Ball::spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravity, float restitution)
 {
 
 	m_Position = startPosition;
@@ -15,30 +16,51 @@ void Ball::spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravit
 
 	m_Gravity = gravity;
 
-	m_Sprite.setPosition(m_Position);
+	m_Restitution = restitution;
+	m_Circle.setOrigin(Vector2f(10,10));
+	m_Circle.setPosition(m_Position);
+
+	
+}
+
+FloatRect Ball::boundBox()
+{
+	return m_Circle.getGlobalBounds();
 }
 
 void Ball::update(float elapsedTime)
 {
 	m_Velocity += m_Gravity * elapsedTime;
 	m_Position += m_Velocity * elapsedTime;
-	std::cout << m_Velocity.y << '\n';
-
-
-	m_Sprite.setPosition(m_Position);
+	m_Circle.setPosition(m_Position);
 }
 
-FloatRect Ball::getPosition()
+ Vector2f Ball::getPosition()
 {
-	return m_Sprite.getGlobalBounds();
+	return m_Circle.getPosition();
 }
 
 Vector2f Ball::getCenter()
 {
-	return Vector2f(m_Position.x + m_Sprite.getGlobalBounds().width / 2, m_Position.y + m_Sprite.getGlobalBounds().height / 2);
+	return m_Circle.getOrigin()+Ball::getPosition();
 }
 
-Sprite Ball::getSprite()
+float Ball::getRestituion()
 {
-	return m_Sprite;
+	return m_Restitution;
+}
+
+void Ball::setVelocity(Vector2f velocity)
+{
+	m_Velocity = velocity;
+}
+
+Vector2f Ball::getVelocity()
+{
+	return m_Velocity;
+}
+
+CircleShape Ball::getCircle()
+{
+	return m_Circle;
 }

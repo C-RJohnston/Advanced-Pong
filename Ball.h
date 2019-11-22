@@ -7,26 +7,34 @@ class Ball
 {
 private:
 	
-	Sprite m_Sprite;
+	float m_Restitution;
 
 	Vector2f m_Gravity;
 
 	Vector2f m_Position;
 	Vector2f m_Velocity;
 
-	Texture m_Texture;
+	CircleShape m_Circle;
 
 public:
 
 	Ball();
 
-	void spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravity);
+	void spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravity, float restitution);
 
-	FloatRect getPosition();
+	Vector2f getPosition();
 
-	Sprite getSprite();
+	CircleShape getCircle();
 
 	Vector2f getCenter();
+
+	float getRestituion();
+
+	FloatRect boundBox();
+
+	void setVelocity(Vector2f velocity);
+
+	Vector2f getVelocity();
 
 	void update(float elapsedTime);
 };

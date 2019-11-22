@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "Ball.h"
+#include "Obstacle.h"
 
 using namespace sf;
 
@@ -14,8 +15,11 @@ private:
 	//A pinball
 	Ball m_Ball;
 
+	//a test obstacle, delete later
+	Obstacle m_Obstacle;
+
 	//the force of gravity experienced by the ball as a constant value in pixels/second^2
-	const Vector2f g = Vector2f(0, 1000);
+	const Vector2f g = Vector2f(0, 700);
 
 	//a Rendew Window for the game and the views (player view, HUD view, and BG view)
 	RenderWindow m_Window;
@@ -35,6 +39,7 @@ private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();
+	bool detectCollisions(Ball& ball, Obstacle& obstacle);
 
 public:
 	//the Engine constructor

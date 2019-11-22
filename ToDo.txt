@@ -60,4 +60,4 @@ implement collisions
 implement score system
 
 Next Step:
-Create Obstacle and detect collision between obstacle and ball
+fix collision detection for varied angles
