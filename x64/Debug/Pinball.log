@@ -1,0 +1,13 @@
+﻿  Obstacle.cpp
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(48,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         with
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         [
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:             T=float
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         ]
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         with
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         [
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:             T=float
+C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         ]
+  Pinball.vcxproj -> C:\Users\camer\source\repos\Pinball\x64\Debug\Pinball.exe
