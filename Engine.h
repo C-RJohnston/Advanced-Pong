@@ -16,12 +16,13 @@ private:
 	Ball m_Ball;
 
 	//a test obstacle, delete later
+	Obstacle m_Obstacle2;
 	Obstacle m_Obstacle;
 
 	//the force of gravity experienced by the ball as a constant value in pixels/second^2
 	const Vector2f g = Vector2f(0, 700);
 
-	//a Rendew Window for the game and the views (player view, HUD view, and BG view)
+	//a Render Window for the game and the views (player view, HUD view, and BG view)
 	RenderWindow m_Window;
 	View m_BGView;
 	View m_View;

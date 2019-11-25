@@ -9,13 +9,19 @@ Obstacle::Obstacle()
 	m_Rect.setSize(Vector2f(200, 30));
 }
 
-void Obstacle::spawn(Vector2f position, float restitution)
+void Obstacle::spawn(Vector2f position, float restitution, float angle)
 {
 	
 	m_Rect.setPosition(position);
 	m_Rect.setOrigin(100, 15);
-	m_Rect.setRotation(45);
+	m_angle = angle;
+	m_Rect.setRotation(m_angle);
 	m_Restitution = restitution;
+	m_norm = (m_Rect.getPoint(3) + m_Rect.getPoint(2)) * 0.5f - m_Rect.getOrigin()/*+m_Rect.getPosition()*/;
+	m_norm = m_norm / sqrt(pow(m_norm.x, 2) + pow(m_norm.y, 2));
+	m_norm = Vector2f(m_norm.x * cos(m_angle*M_PI/180) - m_norm.y * sin(m_angle * M_PI / 180),
+		m_norm.x * sin(m_angle * M_PI / 180) + m_norm.y * cos(m_angle * M_PI / 180));
+	std::cout <<'('<< m_norm.x <<','<<m_norm.y<<')'<< '\n';
 }
 
 Vector2f Obstacle::getPosition()
@@ -39,14 +45,17 @@ FloatRect Obstacle::boundBox()
 	return m_Rect.getGlobalBounds();
 }
 
+float Obstacle::getAngle()
+{
+	return m_angle;
+}
+
 void Obstacle::collide(Ball& Ball)
 {
 	float restComb = (m_Restitution + Ball.getRestituion()) / 2;
-	Vector2f topLeft = Vector2f(m_Rect.getPoint(3).x * sin(m_Rect.getRotation()) + m_Rect.getPosition().x, m_Rect.getPoint(3).y * cos(m_Rect.getRotation()) + m_Rect.getPosition().y);
-	Vector2f topRight = Vector2f(m_Rect.getPoint(2).x * sin(m_Rect.getRotation()) + m_Rect.getPosition().x, m_Rect.getPoint(2).y * cos(m_Rect.getRotation()) + m_Rect.getPosition().y);
-	Vector2f top = topRight - topLeft;
-	float angle = 90 - acos((Ball.getVelocity().x * top.x + Ball.getVelocity().y * top.y) / (sqrt(pow(Ball.getVelocity().x, 2) + pow(Ball.getVelocity().y, 2)) * sqrt(pow(top.x, 2) + pow(top.y, 2))))*180/M_PI;
-	Ball.setVelocity(Vector2f(cos(2 * angle*M_PI/180) * Ball.getVelocity().x + sin(2 * angle * M_PI / 180) * Ball.getVelocity().y, sin(2 * angle * M_PI / 180) * Ball.getVelocity().x - cos(2 * angle * M_PI / 180) * Ball.getVelocity().y));
-	std::cout << angle;
-} 
+	Vector2f exitVelocity = (Ball.getVelocity() - 
+		2*(Ball.getVelocity().x * m_norm.x + Ball.getVelocity().y * m_norm.y) * m_norm)*restComb;
+	Ball.setVelocity(exitVelocity);
+}	
+
 

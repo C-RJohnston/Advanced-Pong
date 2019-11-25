@@ -19,8 +19,10 @@ void Engine::run()
 {
 	// Timing 	
 	Clock clock;
-	m_Ball.spawn(Vector2f(400, 500), Vector2f(0, -800), g, 0.7);
-	m_Obstacle.spawn(Vector2f(400, 900), 0.5);
+
+	m_Ball.spawn(Vector2f(400, 500), Vector2f(0, -1000), g, 1.0);
+	m_Obstacle2.spawn(Vector2f(400, 900), 1.0, 25);
+	m_Obstacle.spawn(Vector2f(600, 700), 1.0, -70);
 
 	while (m_Window.isOpen())
 	{

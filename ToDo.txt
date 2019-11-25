@@ -52,12 +52,13 @@ Started engine class
 build texture holder class
 mostly just lifting from old TWL code
 implemented gravity on ball
+implemented collisions between simple obstacle and the ball
 
 What to do:
 Make all objects and classes
 make graphics for ball, paddle, obstacles, point boinkers, wall, and background
-implement collisions
 implement score system
 
 Next Step:
-fix collision detection for varied angles
+prevent multiple collisions with the same obstacle within a very short time frame
+Create player controlled paddles that collide with the ball
