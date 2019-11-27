@@ -9,8 +9,10 @@ void Engine::draw()
 	m_Window.setView(m_BGView);
 	m_Window.draw(m_BackgroundSprite);
 	m_Window.draw(m_Ball.getCircle());
-	m_Window.draw(m_Obstacle.getRect());
-	m_Window.draw(m_Obstacle2.getRect());
+	for (int i = 0; i < 4; i++)
+	{
+		m_Window.draw(m_Obstacles[i].getRect());
+	}
 
 
 	m_Window.setView(m_HudView);

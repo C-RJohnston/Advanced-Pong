@@ -60,5 +60,5 @@ make graphics for ball, paddle, obstacles, point boinkers, wall, and background
 implement score system
 
 Next Step:
-prevent multiple collisions with the same obstacle within a very short time frame
-Create player controlled paddles that collide with the ball
+improve the collision detection using the separate axis theorem
+consider switching to sprite and textures and using pixel perfect collision

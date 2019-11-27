@@ -1,14 +1,13 @@
 #include "Engine.h"
 #include <iostream>
 
+
+
 bool Engine::detectCollisions(Ball& ball, Obstacle& obstacle)
 {
-	
-	if (ball.boundBox().intersects(obstacle.boundBox()))
-	{
+	Vector2f lines = obstacle.getLines();
+	std::cout << lines.x << '\n';
 
-		obstacle.collide(ball);
-	}
 	return true;
 }
 

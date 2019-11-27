@@ -16,8 +16,7 @@ private:
 	Ball m_Ball;
 
 	//a test obstacle, delete later
-	Obstacle m_Obstacle2;
-	Obstacle m_Obstacle;
+	Obstacle m_Obstacles[4];
 
 	//the force of gravity experienced by the ball as a constant value in pixels/second^2
 	const Vector2f g = Vector2f(0, 700);
