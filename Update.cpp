@@ -1,9 +1,16 @@
 #include "Engine.h"
+float timeElapsed = 0;
 
 void Engine::update(float dtAsSeconds)
 {
+	timeElapsed += dtAsSeconds;
 	m_Ball.update(dtAsSeconds);
 
-	detectCollisions(m_Ball, m_Obstacle);
-	detectCollisions(m_Ball, m_Obstacle2);
+	for (int i = 0; i < 4; i++)
+	{
+		if (detectCollisions(m_Ball, m_Obstacles[i]))
+		{
+
+		}
+	}
 }

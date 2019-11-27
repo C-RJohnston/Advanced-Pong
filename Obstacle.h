@@ -32,7 +32,7 @@ public:
 
 	Vector2f getCenter();
 
-	Vector2f getLines();
+	Vector2f* getLines();
 
 	float getAngle();
 
