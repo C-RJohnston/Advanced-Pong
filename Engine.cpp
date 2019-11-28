@@ -22,7 +22,7 @@ void Engine::run()
 	Clock clock;
 
 	m_Ball.spawn(Vector2f(400, 500), Vector2f(0, 800), g, 1.0);
-	m_Obstacles[0].spawn(Vector2f(400, 700), 1.0, 45);
+	m_Obstacles[0].spawn(Vector2f(400, 700), 1.0, 180);
 	//m_Obstacles[1].spawn(Vector2f(600, 700), 1.0, 45);
 	//m_Obstacles[2].spawn(Vector2f(600, 300), 1.0, 45*5);
 	//m_Obstacles[3].spawn(Vector2f(400, 300), 1.0, 45 * 7);

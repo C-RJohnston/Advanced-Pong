@@ -15,7 +15,6 @@ private:
 
 	RectangleShape m_Rect;
 
-
 	float m_angle;
 	
 	Vector2f m_norm;
@@ -32,7 +31,7 @@ public:
 
 	Vector2f getCenter();
 
-	Vector2f* getLines();
+	Vector2f getCorners(int index);
 
 	float getAngle();
 

@@ -3,6 +3,7 @@
 #include "TextureHolder.h"
 #include <iostream>
 #include <cmath>
+#include "Maths.h"
 
 Obstacle::Obstacle()
 {
@@ -11,9 +12,8 @@ Obstacle::Obstacle()
 
 void Obstacle::spawn(Vector2f position, float restitution, float angle)
 {
-	
-	m_Rect.setPosition(position);
 	m_Rect.setOrigin(100, 15);
+	m_Rect.setPosition(position);
 	m_angle = angle;
 	m_Rect.setRotation(m_angle);
 	m_Restitution = restitution;
@@ -36,17 +36,7 @@ RectangleShape Obstacle::getRect()
 
 Vector2f Obstacle::getCenter()
 {
-	return m_Rect.getOrigin();
-}
-
-Vector2f* Obstacle::getLines()
-{
-	Vector2f lines[4];
-	lines[0] = m_Rect.getPoint(0) - m_Rect.getPoint(1) + m_Rect.getPosition();
-	lines[1] = m_Rect.getPoint(1) - m_Rect.getPoint(2) + m_Rect.getPosition();
-	lines[2] = m_Rect.getPoint(2) - m_Rect.getPoint(3) + m_Rect.getPosition();
-	lines[3] = m_Rect.getPoint(3) - m_Rect.getPoint(0) + m_Rect.getPosition();
-	return lines;
+	return m_Rect.getPosition();
 }
 
 float Obstacle::getAngle()
@@ -54,6 +44,19 @@ float Obstacle::getAngle()
 	return m_angle;
 }
 
+Vector2f Obstacle::getCorners(int index)
+{
+	Vector2f corners[4];
+	Vector2f unrot0 = Vector2f(Obstacle::getCenter().x - m_Rect.getSize().x / 2, Obstacle::getCenter().y + m_Rect.getSize().y / 2);
+	corners[0] = rotate(unrot0,m_angle);
+	Vector2f unrot1 = Vector2f(Obstacle::getCenter().x + m_Rect.getSize().x / 2, Obstacle::getCenter().y + m_Rect.getSize().y / 2);
+	corners[1] = rotate(unrot1, m_angle);
+	Vector2f unrot2 = Vector2f(Obstacle::getCenter().x - m_Rect.getSize().x / 2, Obstacle::getCenter().y - m_Rect.getSize().y / 2);
+	corners[2] = rotate(unrot2, m_angle);
+	Vector2f unrot3 = Vector2f(Obstacle::getCenter().x + m_Rect.getSize().x / 2, Obstacle::getCenter().y - m_Rect.getSize().y / 2);
+	corners[3] = rotate(unrot3,m_angle);
+	return corners[index];
+}
 
 void Obstacle::collide(Ball& Ball)
 {
