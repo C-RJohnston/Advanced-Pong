@@ -48,13 +48,13 @@ Vector2f Obstacle::getCorners(int index)
 {
 	Vector2f corners[4];
 	Vector2f unrot0 = Vector2f(Obstacle::getCenter().x - m_Rect.getSize().x / 2, Obstacle::getCenter().y + m_Rect.getSize().y / 2);
-	corners[0] = rotate(unrot0,m_angle);
+	corners[0] = rotate(unrot0,m_angle,Obstacle::getCenter());
 	Vector2f unrot1 = Vector2f(Obstacle::getCenter().x + m_Rect.getSize().x / 2, Obstacle::getCenter().y + m_Rect.getSize().y / 2);
-	corners[1] = rotate(unrot1, m_angle);
+	corners[1] = rotate(unrot1, m_angle, Obstacle::getCenter());
 	Vector2f unrot2 = Vector2f(Obstacle::getCenter().x - m_Rect.getSize().x / 2, Obstacle::getCenter().y - m_Rect.getSize().y / 2);
-	corners[2] = rotate(unrot2, m_angle);
+	corners[2] = rotate(unrot2, m_angle, Obstacle::getCenter());
 	Vector2f unrot3 = Vector2f(Obstacle::getCenter().x + m_Rect.getSize().x / 2, Obstacle::getCenter().y - m_Rect.getSize().y / 2);
-	corners[3] = rotate(unrot3,m_angle);
+	corners[3] = rotate(unrot3,m_angle, Obstacle::getCenter());
 	return corners[index];
 }
 
@@ -64,7 +64,7 @@ void Obstacle::collide(Ball& Ball)
 	Vector2f exitVelocity = (Ball.getVelocity() - 
 		2*(Ball.getVelocity().x * m_norm.x + Ball.getVelocity().y * m_norm.y) * m_norm)*restComb;
 	Ball.setVelocity(exitVelocity);
-	std::cout << '(' << exitVelocity.x << ',' << exitVelocity.y << ')' << '\n';
+	printVect(exitVelocity);
 }	
 
 

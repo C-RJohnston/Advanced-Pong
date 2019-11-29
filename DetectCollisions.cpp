@@ -8,25 +8,28 @@ float proj;
 
 bool Engine::detectCollisions(Ball& ball, Obstacle& obstacle)
 {
-	Vector2f displacement = ball.getCenter()-obstacle.getCenter();
-	Vector2f nDisplacement = normal(displacement);
-	for (int i = 0; i < obstacle.getRect().getPointCount(); i++)
-	{
-		corner = obstacle.getCorners(i);
-		proj = dot(nDisplacement, corner);
-		std::cout << i;
-		printVect(corner);
-		if (Max < proj)
-		{
-			Max = proj;
-		}
-	}
-	if (sqrt(dot(displacement, displacement)) - Max - ball.getCircle().getRadius() > 0 && sqrt(dot(displacement, displacement)) > 0)
+
+	Vector2f local = rotate(ball.getPosition(), -obstacle.getAngle(), obstacle.getCenter());
+
+	Vector2f delta = Vector2f(
+		local.x -
+		std::max(obstacle.getPosition().x - obstacle.getRect().getSize().x/2,
+			std::min(local.x, obstacle.getPosition().x + obstacle.getRect().getSize().x/2)),
+		local.y -
+		std::max(obstacle.getPosition().y - obstacle.getRect().getSize().y/2,
+			std::min(local.y, obstacle.getPosition().y + obstacle.getRect().getSize().y/2))
+	);
+
+	if (dot(delta, delta) < pow(ball.getCircle().getRadius(),2))
 	{
 		obstacle.collide(ball);
+		//std::cout << "collision" << '\n';
 	}
-	
-
+	//printVect(delta);
+ 	//printVect(local);
+// 	printVect(obstacle.getCorners(0));
+// 	std::cout << '\n';
+	//std::cout << dot(delta, delta) << '\n';
 
 	return true;
 }

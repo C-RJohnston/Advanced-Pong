@@ -17,7 +17,7 @@ void Ball::spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravit
 	m_Gravity = gravity;
 
 	m_Restitution = restitution;
-	m_Circle.setOrigin(Vector2f(10,10));
+	m_Circle.setOrigin(Vector2f(5,5));
 	m_Circle.setPosition(m_Position);
 
 	
@@ -32,6 +32,7 @@ void Ball::update(float elapsedTime)
 {
 	m_Velocity += m_Gravity * elapsedTime;
 	m_Position += m_Velocity * elapsedTime;
+/* 	m_Position = Vector2f(Mouse::getPosition());*/
 	m_Circle.setPosition(m_Position);
 }
 
@@ -42,7 +43,7 @@ void Ball::update(float elapsedTime)
 
 Vector2f Ball::getCenter()
 {
-	return m_Circle.getOrigin()+Ball::getPosition();
+	return Ball::getPosition();
 }
 
 float Ball::getRestituion()

@@ -60,4 +60,4 @@ make graphics for ball, paddle, obstacles, point boinkers, wall, and background
 implement score system
 
 Next Step:
-fix the rotation method to be able to rotate about a point other than the origin
+create controllable paddles
