@@ -9,6 +9,9 @@ private:
 	
 	float m_Restitution;
 
+	Vector2f START_POSITION;
+	Vector2f START_VELOCITY;
+
 	Vector2f m_Gravity;
 
 	Vector2f m_Position;
@@ -37,4 +40,6 @@ public:
 	Vector2f getVelocity();
 
 	void update(float elapsedTime);
+
+	void reset(float direction);
 };

@@ -2,9 +2,7 @@
 #include <iostream>
 #include "Maths.h"
 
-float Max=-INFINITY;
-Vector2f corner;
-float proj;
+
 
 bool Engine::detectCollisions(Ball& ball, Obstacle& obstacle)
 {
@@ -20,17 +18,16 @@ bool Engine::detectCollisions(Ball& ball, Obstacle& obstacle)
 			std::min(local.y, obstacle.getPosition().y + obstacle.getRect().getSize().y/2))
 	);
 
+
+
+
 	if (dot(delta, delta) < pow(ball.getCircle().getRadius(),2))
 	{
 		obstacle.collide(ball);
-		//std::cout << "collision" << '\n';
+		return true;
 	}
-	//printVect(delta);
- 	//printVect(local);
-// 	printVect(obstacle.getCorners(0));
-// 	std::cout << '\n';
-	//std::cout << dot(delta, delta) << '\n';
 
-	return true;
+
+	return false;
 }
 

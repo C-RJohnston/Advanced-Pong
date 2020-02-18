@@ -12,7 +12,9 @@ void Ball::spawn(Vector2f startPosition, Vector2f startVelocity, Vector2f gravit
 {
 
 	m_Position = startPosition;
+	START_POSITION = startPosition;
 	m_Velocity = startVelocity;
+	START_VELOCITY = startVelocity;
 
 	m_Gravity = gravity;
 
@@ -30,9 +32,20 @@ FloatRect Ball::boundBox()
 
 void Ball::update(float elapsedTime)
 {
+
+	if (m_Position.y >= 900)
+	{
+		m_Velocity.y *= -1;
+		m_Position.y = 900 - m_Circle.getRadius() * 2;
+	}
+	else if (m_Position.y < 0)
+	{
+		m_Velocity.y *= -1;
+		m_Position.y = m_Circle.getRadius() * 2;
+	}
+
 	m_Velocity += m_Gravity * elapsedTime;
 	m_Position += m_Velocity * elapsedTime;
-/* 	m_Position = Vector2f(Mouse::getPosition());*/
 	m_Circle.setPosition(m_Position);
 }
 
@@ -64,4 +77,11 @@ Vector2f Ball::getVelocity()
 CircleShape Ball::getCircle()
 {
 	return m_Circle;
+}
+
+void Ball::reset(float direction)
+{
+	m_Position = START_POSITION;
+	m_Velocity = START_VELOCITY * direction;
+	m_Circle.setPosition(m_Position);
 }

@@ -1,13 +1,8 @@
-﻿  Obstacle.cpp
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(48,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         with
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         [
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:             T=float
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,180): warning C4244:         ]
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         with
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         [
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:             T=float
-C:\Users\camer\source\repos\Pinball\Obstacle.cpp(49,75): warning C4244:         ]
-  Pinball.vcxproj -> C:\Users\camer\source\repos\Pinball\x64\Debug\Pinball.exe
+﻿  main.cpp
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Program Files (x86)\SFML-2.5.1\lib\sfml-audio-d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\SFML-2.5.1\lib\sfml-window-d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\SFML-2.5.1\lib\sfml-graphics-d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\SFML-2.5.1\lib\sfml-network-d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\SFML-2.5.1\lib\sfml-system-d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\camer\source\repos\Pinball\x64\Debug\Pinball.exe : fatal error LNK1120: 1 unresolved externals

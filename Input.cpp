@@ -14,4 +14,7 @@ void Engine::input()
 			}
 		}
 	}
+	m_P1.handleInput();
+	m_P2.handleInput();
+
 }

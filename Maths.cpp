@@ -6,6 +6,16 @@
 	return vector1.x * vector2.x + vector1.y * vector2.y;
 }
 
+ float value(Vector2f vector)
+ {
+	 return sqrt(dot(vector, vector));
+ }
+
+ float findAngle(Vector2f vector1, Vector2f vector2)
+ {
+	 return acos(dot(vector1, vector2) / (value(vector1)* value(vector2)));
+ }
+
 Vector2f normal(Vector2f vector)
 {
 	return vector * (1 / sqrt(dot(vector, vector)));
